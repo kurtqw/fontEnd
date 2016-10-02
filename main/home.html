@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>主页</title>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/main/home.css" rel="stylesheet">
+</head>
+<body>
+<!--导航栏-->
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <span class="navbar-brand">TOWN MEET</span>
+            <span class="navbar-brand">城·见</span>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <!--slider-->
+    <div id="photo" class="carousel slide" data-ride="carousel" >
+        <ol class="carousel-indicators">
+            <li data-target="#photo" data-slide-to="0" class="active"></li>
+            <li data-target="#photo" data-slide-to="1"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active sliderPhoto">
+                <img src="../res/slider/1.png" >
+                <div class="carousel-caption">
+                    <h1>这里要写个什么</h1>
+                </div>
+            </div>
+            <div class="item sliderPhoto">
+                <img src="../res/slider/2.png" >
+                <div class="carousel-caption">
+                    <h1>这里要写个什么</h1>
+                </div>
+            </div>
+        </div>
+
+        <a class="left carousel-control" href="#photo" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+
+        <a class="right carousel-control" href="#photo" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+    <!--选择性别-->
+    <div id="role_photo">
+
+    </div>
+    <a type="button" class="btn choice">
+        <span class="glyphicon glyphicon-cloud"></span>选择角色</a>
+
+
+    <div class="modal fade" id="chooseGender" tabindex="-1" role="dialog" aria-labelledby="genderLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="genderLabel">选择角色</h4>
+                </div>
+                <div class="modal-body">
+                    <img id="male" class="genderCard" src="../res/card.png">
+                    <img id="female" class="genderCard" src="../res/card.png">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="certain_role" class="btn btn-default">确定</button>
+                </div>
+                <div class="alert alert-danger" id="role_miss" role="alert" style="display: none"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="chooseName" tabindex="-1" role="dialog" aria-labelledby="nameLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="nameLabel">给自己选一个合适的昵称</h4>
+                </div>
+                <div class="modal-body">
+                    <select class="form-control" id="name">
+                        <option>请选择</option>
+                        <option>鲁智深</option>
+                        <option>林冲</option>
+                        <option>宋江</option>
+                        <option>潘金莲</option>
+                        <option>武松</option>
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" id="begin_chat">进入聊天</button>
+                </div>
+                <div class="alert alert-danger" id="name_miss" role="alert" style="display: none"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="matching" tabindex="-1" role="dialog" aria-labelledby="nameLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="matchingLabel">玩命匹配中...</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/main/home.js"></script>
+</body>
+</html>

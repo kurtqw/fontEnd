@@ -1,0 +1,53 @@
+body{
+    background-image: url(../../res/bg.jpg);
+}
+
+/*slider的图*/
+.sliderPhoto{
+    width: 970px;
+    height: 400px;
+}
+
+.carousel-caption{
+    padding-bottom: 20%;
+}
+
+/*提示框*/
+.alert-success{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+/*选择性别*/
+
+.genderCard{
+    width: 150px;
+    height: 250px;
+    cursor: pointer;
+    margin-left: 80px;
+}
+
+#choose_role,#choose_name{
+    font-size: 25px;
+    margin-top: 80px;
+    margin-left: 400px;
+    background-color: #404040;
+    color:#fff;
+}
+
+#choose_name{
+    font-size: 25px;
+    margin-top: 20px;
+    margin-left: 400px;
+    background-color: #404040;
+    color:#fff;
+}
+
+
+.img-circle{
+    width: 140px;
+    height: 140px;
+    margin-left: 400px;
+    margin-top: 30px;
+}
+
