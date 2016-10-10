@@ -59,16 +59,18 @@
 }
 
 #enterChat{
-    width: 150px;
+    max-width: 180px;
     height: 50px;
     margin-left: auto;
     margin-right: auto;
     border:2px solid #fff;
     font:20px bold;
     color: #fff;
-    padding: 12px 8px 12px 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
     text-transform: uppercase;
     border-radius: 5px;
+    text-align: center;
     -webkit-transition: all 0.5s ease-in-out;
 }
 
