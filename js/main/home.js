@@ -1,4 +1,5 @@
 $(document).ready(function(){
+    var sex;
     listenMale();
     listenFemale();
     $("#enterChat").on("click",function(){
@@ -6,6 +7,7 @@ $(document).ready(function(){
            $("#role_miss").show().text("请先选择角色！");
            return;
        }
+       initName(sex);
         $("#chooseName").modal("show");
         $("#begin_chat").on("click",function(){
             var temp="#name option:selected";
@@ -35,6 +37,7 @@ $(document).ready(function(){
             $(this).attr("src","../res/male.jpg");
             $(this).unbind("mouseout").unbind("mouseover").unbind("click");
             $("#female").unbind("mouseout").unbind("mouseover").unbind("click").attr("src","../res/card.png");
+            sex=0;
             listenFemale();
             showRoleImg("../res/male.jpg");
 
@@ -50,6 +53,7 @@ $(document).ready(function(){
             $(this).attr("src","../res/female.jpg");
             $(this).unbind("mouseout").unbind("mouseover").unbind("click");
             $("#male").unbind("mouseout").unbind("mouseover").unbind("click").attr("src","../res/card.png");
+            sex=1;
             listenMale();
             showRoleImg("../res/female.jpg")
         });
@@ -59,5 +63,18 @@ $(document).ready(function(){
         $("#role_miss").css("display","none");
         $("#roleDiv").show();
         $("#roleImg").attr("src",img);
+    }
+
+    function initName(sex){
+        console.log(sex);
+        $.ajax({
+            url:"119.29.161.184:8000/name?sex="+sex,
+            type:'GET',
+            dataType:'JSON',
+            success: function(res){
+               alert(res);
+            }
+        });
+
     }
 });
