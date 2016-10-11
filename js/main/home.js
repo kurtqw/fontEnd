@@ -8,6 +8,7 @@ $(document).ready(function(){
            return;
        }
        initName(sex);
+        $("#roleCard").css("opacity","0");
         $("#chooseName").modal("show");
         $("#begin_chat").on("click",function(){
             var temp="#name option:selected";
