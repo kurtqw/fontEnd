@@ -12,12 +12,24 @@ $(document).ready(function(){
         $("#begin_chat").on("click",function(){
             var temp="#name option:selected";
             var name=$(temp).val();
-            if(name=="请选择"){
+            if(name=="-1"){
                 $("#name").css("width","300px");
                 $("#name_miss").show().text('请选择昵称!');
                 return;
             }
             $("#chooseName").modal("hide");
+            var rand=parseInt(Math.random()*10000000);
+            var url="http://119.29.161.184:8000?rand="+rand+"&sex="+sex+"&nameIndex="+name;
+            $.ajax({
+                url:url,
+                type:"get",
+                xhrFields: {withCredentials: true},
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                }
+            });
+
             $("#matching").modal("show");
             setInterval(function(){
                 var class_temp=".progress-bar";
@@ -66,19 +78,16 @@ $(document).ready(function(){
     }
 
     function initName(sex){
-        var a={13: "风清扬", 20: "王  诚", 21: "王二叔", 23: "王家骏", 32: "平一指", 34: "史镖头", 43: "成不忧", 52: "定  逸"};
-        for(var i in a){
-            console.log(a[i]);
-        }
+
         $.ajax({
             url:"http://119.29.161.184:8000/name?sex="+sex,
             type:'GET',
             dataType:'JSON',
             success: function(res){
                 var nameTemp=res.data;
-                for(var i in nameTemp){
-                    $("#name").append('<option value="'+i+'">'+nameTemp[i]+'</option>')
-                }
+                $.each(nameTemp,function(key,value){
+                    $("#name").append('<option value="'+key+'">'+value+'</option>');
+                });
             }
         });
 
