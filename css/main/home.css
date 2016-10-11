@@ -8,9 +8,12 @@
 
 /*导航栏样式设置*/
 .jumbotron{
-    background:url('../../res/bg.jpg')
+    background-image:url('../../res/bg.jpg');
+    width: 100%;
+    height: 100%;
 }
 
+/*重写bootstrap的样式*/
 .jumbotron p{
     margin-bottom: 0;
 }
@@ -22,17 +25,18 @@
 
 #roleCard{
     width: 70%;/*600px*/
-    height: 250px;
+    height: 42.7%;/*250px*/
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 2%;
 }
 
 
 #roleCard li{
     width: 16.7%;/*100/600*/
-    height: 250px;
+    height: 100%;/*250px;*/
     display: inline-block;
-    -webkit-perspective: 400px;
+    -webkit-perspective: 20em;/*400px*/
     -webkit-transform-style: preserve-3d;
     -webkit-transition: all 0.5s;
     margin-left: 16.7%;/*100/600*/
@@ -40,8 +44,8 @@
 
 
 #roleCard img{
-    width: 100%;/*100/100*/
-    height: 180px;
+    width: 100%;
+    height: 100%;
     border:1px solid #fcfafa;
     -moz-box-shadow:0 3px 10px #030303;
     -webkit-box-shadow:0 3px 10px #000000;
@@ -52,8 +56,7 @@
 
 #roleCard img:hover{
     cursor: pointer;
-    width: 120%;/*120/100*/
-    -webkit-perspective: 50px;
+    -webkit-perspective: 3em;
     -webkit-transform: rotateX(10deg);
     -moz-box-shadow:2px 2px 10px #000000;
     -webkit-box-shadow:2px 2px 10px #000000;
@@ -61,7 +64,7 @@
 }
 
 #enterChat{
-    width: 180px;
+    width: 20%;
     margin-left: auto;
     margin-right: auto;
     border:2px solid #fff;
@@ -82,22 +85,20 @@
 }
 
 #roleDiv{
-    width: 100px;
-    height: 100px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 10%;/*100px*/
+    height: 10%;/*100px*/
+    margin: 5% auto;
     display: none;
-    margin-bottom: 30px;
 }
 
 #roleImg{
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height:100%;
     -webkit-box-shadow: 2px 2px 10px #000;
 }
 
 #role_miss{
-    width: 500px;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
