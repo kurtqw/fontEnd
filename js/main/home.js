@@ -66,15 +66,18 @@ $(document).ready(function(){
     }
 
     function initName(sex){
+        var a={13: "风清扬", 20: "王  诚", 21: "王二叔", 23: "王家骏", 32: "平一指", 34: "史镖头", 43: "成不忧", 52: "定  逸"};
+        for(var i in a){
+            console.log(a[i]);
+        }
         $.ajax({
             url:"http://119.29.161.184:8000/name?sex="+sex,
             type:'GET',
             dataType:'JSON',
             success: function(res){
-                console.log(res.data);
-                for(var i=0;i<res.data;i++){
-                    console.log(res.data[i]);
-                    $("#name").append('<option>'+res.data[i]+'</option>')
+                var nameTemp=res.data;
+                for(var i in nameTemp){
+                    $("#name").append('<option value="'+i+'">'+nameTemp[i]+'</option>')
                 }
             }
         });
