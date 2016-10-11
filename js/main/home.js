@@ -66,13 +66,15 @@ $(document).ready(function(){
     }
 
     function initName(sex){
-        console.log(sex);
         $.ajax({
             url:"http://119.29.161.184:8000/name?sex="+sex,
             type:'GET',
             dataType:'JSON',
             success: function(res){
-               console.log(res);
+                for(var i=0;i<res.data.length;i++){
+                    console.log(res.data[i]);
+                    $("#name").append('<option>'+res.data[i]+'</option>')
+                }
             }
         });
 
