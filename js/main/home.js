@@ -71,7 +71,8 @@ $(document).ready(function(){
             type:'GET',
             dataType:'JSON',
             success: function(res){
-                for(var i=0;i<res.data.length;i++){
+                console.log(res.data);
+                for(var i=0;i<res.data;i++){
                     console.log(res.data[i]);
                     $("#name").append('<option>'+res.data[i]+'</option>')
                 }
