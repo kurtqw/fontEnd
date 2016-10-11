@@ -13,9 +13,14 @@
     height: 100%;
 }
 
+.homePage{
+   width: 100%;
+}
+
 /*重写bootstrap的样式*/
 .jumbotron p{
     margin-bottom: 0;
+    font: 3vmin bold;
 }
 
 .pageTitle{
@@ -67,15 +72,17 @@
     width: 20%;
     margin-left: auto;
     margin-right: auto;
-    border:2px solid #fff;
-    font:1.3em bold;
+    border: solid #fff;
     color: #fff;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 1.5%;
+    padding-bottom: 1.5%;
     text-transform: uppercase;
     border-radius: 5px;
     text-align: center;
     -webkit-transition: all 0.5s ease-in-out;
+    -webkit-animation: swing 0.1s 5 0.3s ease-in;
+    -moz-transition: all 0.5s ease-in-out;
+    -moz-animation: swing 0.1s 5 0.3s ease-in;
 }
 
 #enterChat:hover{
@@ -86,7 +93,6 @@
 
 #roleDiv{
     width: 10%;/*100px*/
-    height: 10%;/*100px*/
     margin: 5% auto;
     display: none;
 }
@@ -112,6 +118,25 @@
     width: 200px;
     padding: 8px;
     margin-left: 10px;
+}
+
+
+@keyframes swing {
+    0% {
+        transform: rotate(3deg);
+    }
+    20% {
+        transform: rotate(0deg);
+    }
+    60% {
+        transform: rotate(-3deg);
+    }
+    80% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(3deg);
+    }
 }
 
 
