@@ -9,8 +9,9 @@ $(document).ready(function(){
        }
        initName(sex);
         $("#roleCard").css("opacity","0");
-        $("#chooseName").modal("show");
-        $("#roleCard").css("opacity","1");
+        $("#chooseName").modal("show").on('hidden.bs.modal', function (e) {
+            $("#roleCard").css("opacity","1");
+        });
         $("#begin_chat").on("click",function(){
             var temp="#name option:selected";
             var name=$(temp).val();
