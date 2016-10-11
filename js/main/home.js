@@ -13,7 +13,7 @@ $(document).ready(function(){
             var temp="#name option:selected";
             var name=$(temp).val();
             if(name=="-1"){
-                $("#name").css("width","300px");
+                $("#name").css("width","40%");
                 $("#name_miss").show().text('请选择昵称!');
                 return;
             }
