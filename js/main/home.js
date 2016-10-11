@@ -52,7 +52,7 @@ $(document).ready(function(){
             $("#female").unbind("mouseout").unbind("mouseover").unbind("click").attr("src","../res/card.jpg");
             sex=0;
             listenFemale();
-            showRoleImg("../res/male.jpg");
+            showRoleImg("../res/maleCircle.jpg");
 
         });
     }
@@ -68,7 +68,7 @@ $(document).ready(function(){
             $("#male").unbind("mouseout").unbind("mouseover").unbind("click").attr("src","../res/card.jpg");
             sex=1;
             listenMale();
-            showRoleImg("../res/female.jpg")
+            showRoleImg("../res/femaleCircle.jpg")
         });
     }
 
