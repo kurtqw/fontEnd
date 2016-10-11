@@ -68,11 +68,11 @@ $(document).ready(function(){
     function initName(sex){
         console.log(sex);
         $.ajax({
-            url:"119.29.161.184:8000/name?sex="+sex,
+            url:"http://119.29.161.184:8000/name?sex="+sex,
             type:'GET',
             dataType:'JSON',
             success: function(res){
-               alert(res);
+               console.log(res);
             }
         });
 
