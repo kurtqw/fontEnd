@@ -45,7 +45,7 @@ $(document).ready(function(){
         $("#male").on("mouseover",function(){
             $(this).attr("src","../res/male.jpg");
         }).on("mouseout",function(){
-            $(this).attr("src","../res/card.png");
+            $(this).attr("src","../res/card.jpg");
         }).on("click",function(){
             $(this).attr("src","../res/male.jpg");
             $(this).unbind("mouseout").unbind("mouseover").unbind("click");
@@ -61,7 +61,7 @@ $(document).ready(function(){
         $("#female").on("mouseover",function(){
             $(this).attr("src","../res/female.jpg");
         }).on("mouseout",function(){
-            $(this).attr("src","../res/card.png");
+            $(this).attr("src","../res/card.jpg");
         }).on("click",function(){
             $(this).attr("src","../res/female.jpg");
             $(this).unbind("mouseout").unbind("mouseover").unbind("click");
