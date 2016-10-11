@@ -20,6 +20,7 @@ $(document).ready(function(){
             $("#chooseName").modal("hide");
             var rand=parseInt(Math.random()*10000000);
             var url="http://119.29.161.184:8000?rand="+rand+"&sex="+sex+"&nameIndex="+name;
+            console.log(url);
             $.ajax({
                 url:url,
                 type:"get",
@@ -83,6 +84,7 @@ $(document).ready(function(){
             url:"http://119.29.161.184:8000/name?sex="+sex,
             type:'GET',
             dataType:'JSON',
+            xhrFields: {withCredentials: true},
             success: function(res){
                 var nameTemp=res.data;
                 $.each(nameTemp,function(key,value){
