@@ -49,7 +49,7 @@ $(document).ready(function(){
         }).on("click",function(){
             $(this).attr("src","../res/male.jpg");
             $(this).unbind("mouseout").unbind("mouseover").unbind("click");
-            $("#female").unbind("mouseout").unbind("mouseover").unbind("click").attr("src","../res/card.png");
+            $("#female").unbind("mouseout").unbind("mouseover").unbind("click").attr("src","../res/card.jpg");
             sex=0;
             listenFemale();
             showRoleImg("../res/male.jpg");
@@ -65,7 +65,7 @@ $(document).ready(function(){
         }).on("click",function(){
             $(this).attr("src","../res/female.jpg");
             $(this).unbind("mouseout").unbind("mouseover").unbind("click");
-            $("#male").unbind("mouseout").unbind("mouseover").unbind("click").attr("src","../res/card.png");
+            $("#male").unbind("mouseout").unbind("mouseover").unbind("click").attr("src","../res/card.jpg");
             sex=1;
             listenMale();
             showRoleImg("../res/female.jpg")
