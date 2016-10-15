@@ -33,7 +33,7 @@ $(document).ready(function(){
 
     messageSocket.onmessage = function (evt)
     {
-        var received_temp=evt.data.data;
+        var received_temp=evt.data;
         console.log(received_temp);
         var received_msg = received_temp.data.content;
         $("#chat_content").append('<p>'+received_msg+'</p>');
