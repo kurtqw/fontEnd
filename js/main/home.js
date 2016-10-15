@@ -23,13 +23,12 @@ $(document).ready(function(){
             $("#chooseName").modal("hide");
             var rand=parseInt(Math.random()*10000000);
             var url="http://119.29.161.184:8000?rand="+rand+"&sex="+sex+"&nameIndex="+name;
-            console.log(url);
             $.ajax({
                 url:url,
                 type:"get",
                 dataType: 'json',
                 success: function (data) {
-                    console.log(data);
+                    window.location.href="chat.html?"+data.id;
                 }
             });
 
