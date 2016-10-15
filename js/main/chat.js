@@ -22,9 +22,9 @@ $(document).ready(function(){
         $('html').on('keydown',function(e){
             if(e.keyCode==13){
                 $('#send').click();
+                e.preventDefault();
             }
         });
-        $("#chat_input").val("");//清空
     };
 
     messageSocket.onmessage = function (evt)
@@ -50,6 +50,7 @@ $(document).ready(function(){
         $(chat_temp).append('<p class="myMsg">'+$(temp_id).val()+'</p>');
         console.log($(chat_temp)[0].scrollHeight);
         $(chat_temp).scrollTop($(chat_temp)[0].scrollHeight);
+        $("#chat_input").val("");
     }
 
 
