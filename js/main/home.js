@@ -85,8 +85,8 @@ $(document).ready(function(){
             url:"http://119.29.161.184:8000/name?sex="+sex,
             type:'GET',
             dataType:'JSON',
-            success: function(res){
-                var nameTemp=res.data;
+            success: function(data){
+                var nameTemp=data.res;
                 $.each(nameTemp,function(key,value){
                     $("#name").append('<option value="'+key+'">'+value+'</option>');
                 });
