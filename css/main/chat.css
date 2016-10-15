@@ -106,6 +106,7 @@ textarea:focus{
 
 .myMsg{
     padding: 5px;
+    max-width: 250px;
     background-color: #65bfef;
     border-radius: 5px;
     font-size: 1.2em;
@@ -115,7 +116,7 @@ textarea:focus{
     clear: both;
 }
 .receiveMsg{
-    min-width: 10px;
+    max-width: 250px;
     padding: 5px;
     background-color: #fff0bd;
     border-radius: 5px;
