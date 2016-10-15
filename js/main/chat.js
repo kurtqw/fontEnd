@@ -46,7 +46,7 @@ $(document).ready(function(){
             id:   userId
         };
         messageSocket.send(JSON.stringify(msg));//以json数据发送消息
-        $("#chat_content").append('<p class="myMsg">'+$(temp_id).val()+'</p>').scrollTop($(chat_temp)[0].scrollHeight);
+        $("#chat_content").append('<p class="myMsg">'+$(temp_id).val()+'</p>').scrollTop($(this)[0].scrollHeight);
         $("#chat_input").val("");
     }
 
