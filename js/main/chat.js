@@ -12,7 +12,6 @@ $(document).ready(function(){
             }
         }
     });
-    $("#chat_content").append('<p class="myMsg">'+dafadsfsad+'</p>');
     //开始聊天
     var userId=location.search.split("=")[1];//用户的ID
     console.log(userId);
