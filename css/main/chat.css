@@ -39,11 +39,11 @@ aside{
     opacity: 0.8;
     display: inline-block;
     float: left;
-    overflow-y:scroll;
 }
 
 #chat_content{
     height: 60%;
+    overflow-y:auto;
 }
 
 #chat_function{
@@ -111,6 +111,7 @@ textarea:focus{
     font-size: 1.2em;
     float: right;
     word-wrap: break-word;
+    -webkit-box-shadow: 2px 2px 10px #8e8e8e;
     clear: both;
 }
 .receiveMsg{
@@ -121,6 +122,7 @@ textarea:focus{
     font-size: 1.2em;
     margin-left: 1%;
     word-wrap: break-word;
+    -webkit-box-shadow: 2px 2px 10px #8e8e8e;
     float: left;
     clear: both;
 }
