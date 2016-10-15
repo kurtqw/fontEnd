@@ -29,7 +29,7 @@ $(document).ready(function(){
 
     messageSocket.onmessage = function (evt)
     {
-        var received_temp=evt.data;
+        var received_temp=JSON.stringify(evt.data);
         console.log(received_temp);
         var received_msg = received_temp.res.content;
         $("#chat_content").append('<p class="receiveMsg">'+received_msg+'</p>');
