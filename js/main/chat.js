@@ -17,18 +17,7 @@ $(document).ready(function(){
     console.log(userId);
     var messageSocket = new WebSocket("ws://119.29.161.184:8000/chat?id="+userId);//引号里面写url
     messageSocket.onopen = function () {
-        var msg;
-        $("#send").on("click",function(){//点击发送
-            var temp_id="#chat_input";
-            msg = {
-                type: "message",
-                text: $(temp_id).val(),
-                id:   userId
-            };
-            messageSocket.send(JSON.stringify(msg));//以json数据发送消息
-            $("#chat_content").append('<p>'+$(temp_id).val()+'</p>');
-            $(temp_id).val("");
-        });
+        $("#send").on("click",sendMessage);
     };
 
     messageSocket.onmessage = function (evt)
@@ -43,6 +32,17 @@ $(document).ready(function(){
     {
         console.log("关闭连接...")
     };
+    function sendMessage(){
+        var temp_id="#chat_input";
+        var msg = {
+            type: "message",
+            text: $(temp_id).val(),
+            id:   userId
+        };
+        messageSocket.send(JSON.stringify(msg));//以json数据发送消息
+        $("#chat_content").append('<p>'+$(temp_id).val()+'</p>');
+        $(temp_id).val("");
+    }
 
 
 });
