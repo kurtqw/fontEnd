@@ -39,6 +39,7 @@ aside{
     opacity: 0.8;
     display: inline-block;
     float: left;
+    overflow-y:scroll;
 }
 
 #chat_content{
@@ -101,6 +102,16 @@ textarea:focus{
 #send{
     color: #ffa600;
     font-size: 1.3em;
+}
+
+.myMsg{
+    min-height: 25px;
+    max-width: 150px;
+    padding: 5px;
+    background-color: #65bfef;
+    border-radius: 5px;
+    float: right;
+    font-size: 1.2em;
 }
 
 #footer{
