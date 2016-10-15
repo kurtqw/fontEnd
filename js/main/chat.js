@@ -12,6 +12,7 @@ $(document).ready(function(){
             }
         }
     });
+    $("#chat_content").append('<p class="myMsg">'+dafadsfsad+'</p>');
     //开始聊天
     var userId=location.search.split("=")[1];//用户的ID
     console.log(userId);
@@ -31,8 +32,8 @@ $(document).ready(function(){
     {
         var received_temp=evt.data;
         console.log(received_temp);
-        var received_msg = received_temp.data.content;
-        $("#chat_content").append('<p>'+received_msg+'</p>');
+        var received_msg = received_temp.res.content;
+        $("#chat_content").append('<p class="receiveMsg">'+received_msg+'</p>');
     };
 
     messageSocket.onclose = function()
@@ -47,7 +48,7 @@ $(document).ready(function(){
             id:   userId
         };
         messageSocket.send(JSON.stringify(msg));//以json数据发送消息
-        $("#chat_content").append('<p>'+$(temp_id).val()+'</p>');
+        $("#chat_content").append('<p class="myMsg">'+$(temp_id).val()+'</p>');
         $(temp_id).val("");
     }
 
