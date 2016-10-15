@@ -12,6 +12,8 @@ $(document).ready(function(){
             }
         }
     });
+    var temp={"res": {"content": "hello", "type": "message", "sender": "\u738b  \u8bda", "time": "2016-10-15 20:37:36"}, "status": 1};
+    console.log(temp.res.content);
 
     //开始聊天
     var userId=location.search.split("=")[1];//用户的ID
@@ -32,7 +34,7 @@ $(document).ready(function(){
     {
         var received_temp=evt.data;
         console.log(received_temp);
-        var received_msg = received_temp.res.content;
+        var received_msg = received_temp.res.time;
         $("#chat_content").append('<p class="receiveMsg">'+received_msg+'</p>');
     };
 
