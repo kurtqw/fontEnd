@@ -18,6 +18,13 @@ $(document).ready(function(){
     var messageSocket = new WebSocket("ws://119.29.161.184:8000/chat?id="+userId);//引号里面写url
     messageSocket.onopen = function () {
         $("#send").on("click",sendMessage);
+        //捕获回车键
+        $('html').on('keydown',function(e){
+            if(e.keyCode==13){
+                $('#send').click();
+            }
+        });
+
     };
 
     messageSocket.onmessage = function (evt)
