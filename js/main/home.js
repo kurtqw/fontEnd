@@ -28,7 +28,7 @@ $(document).ready(function(){
                 type:"get",
                 dataType: 'json',
                 success: function (data) {
-                    window.location.href="chat.html?"+data.id;
+                    window.location.href="http://119.29.161.184/chat.html?"+data.id;
                 }
             });
 
