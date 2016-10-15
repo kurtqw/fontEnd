@@ -12,4 +12,35 @@ $(document).ready(function(){
             }
         }
     });
+    //开始聊天
+    var userId=location.search.split("=")[1];//用户的ID
+    console.log(userId);
+    var messageSocket = new WebSocket("ws://119.29.161.184:8000/chat?id="+userId);//引号里面写url
+    messageSocket.onopen = function () {
+        var msg;
+        $("#send").on("click",function(){//点击发送
+            var temp_id="#chat_input";
+            msg = {
+                type: "message",
+                text: $(temp_id).val(),
+                id:   userId
+            };
+            messageSocket.send(JSON.stringify(msg));//以json数据发送消息
+            $("#chat_content").append('<p>'+$(temp_id).val()+'</p>');
+            $(temp_id).val("");
+        });
+    };
+
+    messageSocket.onmessage = function (evt)
+    {
+        var received_msg = evt.data;
+        $("#showMessage").append('<p>'+received_msg+'</p>');
+    };
+
+    messageSocket.onclose = function()
+    {
+        console.log("关闭连接...")
+    };
+
+
 });
