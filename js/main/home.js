@@ -27,7 +27,6 @@ $(document).ready(function(){
             $.ajax({
                 url:url,
                 type:"get",
-                xhrFields: {withCredentials: true},
                 dataType: 'json',
                 success: function (data) {
                     console.log(data);
@@ -46,32 +45,32 @@ $(document).ready(function(){
 
     function listenMale(){
         $("#male").on("mouseover",function(){
-            $(this).attr("src","../res/male.jpg");
+            $(this).attr("src","../res/home/male.jpg");
         }).on("mouseout",function(){
-            $(this).attr("src","../res/card.jpg");
+            $(this).attr("src","../res/home/card.jpg");
         }).on("click",function(){
-            $(this).attr("src","../res/male.jpg");
+            $(this).attr("src","../res/home/male.jpg");
             $(this).unbind("mouseout").unbind("mouseover").unbind("click");
-            $("#female").unbind("mouseout").unbind("mouseover").unbind("click").attr("src","../res/card.jpg");
+            $("#female").unbind("mouseout").unbind("mouseover").unbind("click").attr("src","../res/home/card.jpg");
             sex=0;
             listenFemale();
-            showRoleImg("../res/maleCircle.jpg");
+            showRoleImg("../res/home/maleCircle.jpg");
 
         });
     }
 
     function listenFemale(){
         $("#female").on("mouseover",function(){
-            $(this).attr("src","../res/female.jpg");
+            $(this).attr("src","../res/home/female.jpg");
         }).on("mouseout",function(){
-            $(this).attr("src","../res/card.jpg");
+            $(this).attr("src","../res/home/card.jpg");
         }).on("click",function(){
-            $(this).attr("src","../res/female.jpg");
+            $(this).attr("src","../res/home/female.jpg");
             $(this).unbind("mouseout").unbind("mouseover").unbind("click");
-            $("#male").unbind("mouseout").unbind("mouseover").unbind("click").attr("src","../res/card.jpg");
+            $("#male").unbind("mouseout").unbind("mouseover").unbind("click").attr("src","../res/home/card.jpg");
             sex=1;
             listenMale();
-            showRoleImg("../res/femaleCircle.jpg")
+            showRoleImg("../res/home/femaleCircle.jpg")
         });
     }
 
@@ -87,7 +86,6 @@ $(document).ready(function(){
             url:"http://119.29.161.184:8000/name?sex="+sex,
             type:'GET',
             dataType:'JSON',
-            xhrFields: {withCredentials: true},
             success: function(res){
                 var nameTemp=res.data;
                 $.each(nameTemp,function(key,value){
