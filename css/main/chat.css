@@ -1,0 +1,108 @@
+/*设置字体*/
+@font-face {
+    font-family: 'KulminoituvaRegular';
+    src: local('Kulminoituva Regular'), local('Kulminoituva'), /*要想引用本地字体，前提*/
+    url('../../fonts/kulminoituva.woff') format('woff');/*现代的浏览器支持*/
+}
+
+
+
+nav{
+    font-family: KulminoituvaRegular,"Arial Black", Gadget, sans-serif;
+    text-align: center;
+    font-size: 4em;
+}
+
+#content{
+    height: 55%;
+}
+
+.panel{
+    -webkit-box-shadow: 3px 3px 10px #626262;
+}
+
+aside{
+    width: 25%;
+    margin-left: 2%;
+    float: left;
+    opacity: 0.8;
+}
+
+.hot-topic-item  li a{
+    color: #000000;
+}
+
+#chatBox{
+    width: 60%;
+    height: 100%;
+    margin-left: 2%;
+    opacity: 0.8;
+    display: inline-block;
+    float: left;
+}
+
+#chat_content{
+    height: 60%;
+}
+
+#chat_function{
+    height: 8%;
+    background-color: #dff0d8;
+}
+
+#chat_input_div{
+    height: 20% ;
+}
+
+#chat_input{
+    height: 90% ;
+    width: 100%;
+}
+textarea {
+    resize : none;
+    border:none;
+}
+textarea:focus{
+   outline: none;
+}
+
+#function_btn{
+    border-radius: 100px;
+    -webkit-box-shadow:inset 1px 1px 10px #bababa;
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    float: left;
+    margin-left: 3%;
+    margin-top: 0.5%;
+    text-align: center;
+    padding-top: 6px;
+    cursor: pointer;
+}
+#function{
+    font-size: 1.3em;
+    color: #ffa600;
+}
+
+#send_btn{
+    border-radius: 100px;
+    -webkit-box-shadow:inset 1px 1px 10px #bababa;
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    float: right;
+    margin-right: 3%;
+    margin-top: 0.5%;
+    text-align: center;
+    padding-top: 6px;
+    padding-right: 6px;
+    cursor: pointer;
+}
+#send{
+    color: #ffa600;
+    font-size: 1.3em;
+}
+
+#footer{
+    clear: both;
+}
