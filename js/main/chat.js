@@ -31,7 +31,7 @@ $(document).ready(function(){
     {
         var received_temp=$.parseJSON(evt.data);
         var received_msg = received_temp.res.content;
-        $("#chat_content").append('<p class="receiveMsg">'+received_msg+'</p>');
+        $("#chat_content").append('<p class="receiveMsg">'+received_msg+'</p>').scrollTop($(chat_temp)[0].scrollHeight);
     };
 
     messageSocket.onclose = function()
@@ -46,10 +46,7 @@ $(document).ready(function(){
             id:   userId
         };
         messageSocket.send(JSON.stringify(msg));//以json数据发送消息
-        var chat_temp="#chat_content";
-        $(chat_temp).append('<p class="myMsg">'+$(temp_id).val()+'</p>');
-        console.log($(chat_temp)[0].scrollHeight);
-        $(chat_temp).scrollTop($(chat_temp)[0].scrollHeight);
+        $("#chat_content").append('<p class="myMsg">'+$(temp_id).val()+'</p>').scrollTop($(chat_temp)[0].scrollHeight);
         $("#chat_input").val("");
     }
 
