@@ -15,7 +15,6 @@ $(document).ready(function(){
 
     //开始聊天
     var userId=location.search.split("=")[1];//用户的ID
-    console.log(userId);
     var messageSocket = new WebSocket("ws://119.29.161.184:8000/chat?id="+userId);//引号里面写url
     messageSocket.onopen = function () {
         $("#send").on("click",sendMessage);
@@ -25,7 +24,7 @@ $(document).ready(function(){
                 $('#send').click();
             }
         });
-
+        $("#chat_input").val("");//清空
     };
 
     messageSocket.onmessage = function (evt)
@@ -47,8 +46,10 @@ $(document).ready(function(){
             id:   userId
         };
         messageSocket.send(JSON.stringify(msg));//以json数据发送消息
-        $("#chat_content").append('<p class="myMsg">'+$(temp_id).val()+'</p>');
-        $(temp_id).val("");
+        var chat_temp="#chat_content";
+        $(chat_temp).append('<p class="myMsg">'+$(temp_id).val()+'</p>');
+        console.log($(chat_temp)[0].scrollHeight);
+        $(chat_temp).scrollTop($(chat_temp)[0].scrollHeight);
     }
 
 
