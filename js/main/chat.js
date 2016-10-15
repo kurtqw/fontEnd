@@ -12,6 +12,7 @@ $(document).ready(function(){
             }
         }
     });
+
     //开始聊天
     var userId=location.search.split("=")[1];//用户的ID
     console.log(userId);
@@ -29,7 +30,7 @@ $(document).ready(function(){
 
     messageSocket.onmessage = function (evt)
     {
-        var received_temp=JSON.stringify(evt.data);
+        var received_temp=evt.data;
         console.log(received_temp);
         var received_msg = received_temp.res.content;
         $("#chat_content").append('<p class="receiveMsg">'+received_msg+'</p>');
