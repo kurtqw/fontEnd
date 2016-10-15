@@ -9,7 +9,7 @@ $(document).ready(function(){
        }
        initName(sex);
         $("#roleCard").css("opacity","0");
-        $("#chooseName").modal("show").on('hidden.bs.modal', function (e) {
+        $("#chooseName").modal("show").on('hidden.bs.modal', function () {
             $("#roleCard").css("opacity","1");
         });
         $("#begin_chat").on("click",function(){
