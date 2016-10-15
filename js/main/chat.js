@@ -34,7 +34,8 @@ $(document).ready(function(){
     messageSocket.onmessage = function (evt)
     {
         var received_msg = evt.data;
-        $("#showMessage").append('<p>'+received_msg+'</p>');
+        console.log(received_msg);
+        $("#chat_content").append('<p>'+received_msg+'</p>');
     };
 
     messageSocket.onclose = function()
