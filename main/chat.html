@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>聊天</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/jquery.emojiarea.css" rel="stylesheet">
+    <link rel="stylesheet" href="fontello/css/fontello.css">
     <link href="../css/main/chat.css" rel="stylesheet">
 </head>
 <body style="overflow: hidden">
@@ -23,13 +25,14 @@
             <div class="panel-body" id="chat_content"></div>
             <div id="chat_function">
                 <div id="function_btn">
-                    <span class="glyphicon glyphicon-list" id="function"></span>
+                    <span class="glyphicon glyphicon-list" id="emotion"></span>
+
                 </div>
                 <div id="send_btn">
                     <span class="glyphicon glyphicon-send" id="send"></span>
                 </div>
             </div>
-            <div id="chat_input_div">
+            <div id="chat_input_div" class="area_clear">
                 <textarea id="chat_input"></textarea>
                 <label for="chat_input"></label>
             </div>
@@ -41,6 +44,8 @@
     </div>
 </div>
 <script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+<script src="../js/jquery.emojiarea.js"></script>
+<script src="../packs/basic/emojis.js"></script>
 <script type="text/javascript" src="../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../js/main/chat.js"></script>
 </body>
