@@ -13,6 +13,9 @@ $(document).ready(function(){
         }
     });
 
+    //加载表情插件
+    $("#chat_input").emojiarea({button: '#emotion'});
+
     //开始聊天
     var userId=location.search.split("=")[1];//用户的ID
     var messageSocket = new WebSocket("ws://119.29.161.184:8000/chat?id="+userId);//引号里面写url
@@ -32,7 +35,10 @@ $(document).ready(function(){
         var received_temp=$.parseJSON(evt.data);
         var received_msg = received_temp.res.content;
         var chat_temp="#chat_content";
-        $(chat_temp).append('<p class="receiveMsg">'+received_msg+'</p>');
+        $(chat_temp).append('<p class="receiveMsg"><textarea class="emojis-receive">'+received_msg+'</textarea></p>');
+        var $wysiwyg = $('.emojis-receive:last-child').emojiarea();
+        $wysiwyg.trigger('change');
+
         $(chat_temp).scrollTop($(chat_temp)[0].scrollHeight);
     };
 
@@ -49,10 +55,15 @@ $(document).ready(function(){
         };
         messageSocket.send(JSON.stringify(msg));//以json数据发送消息
         var chat_temp="#chat_content";
-        $(chat_temp).append('<p class="myMsg">'+$(temp_id).val()+'</p>');
+        $(chat_temp).append('<p class="myMsg"><textarea class="emojis-wysiwyg">'+$(temp_id).val()+'</textarea></p>');
+
+        //得到最后一个刚发送的表情转换
+        var $wysiwyg = $('.emojis-wysiwyg:last-child').emojiarea();
+        $wysiwyg.trigger('change');
+
         $(chat_temp).scrollTop($("#chat_content")[0].scrollHeight);
         $("#chat_input").val("");
+        $(".area_clear .emoji-wysiwyg-editor").empty();
     }
-
 
 });
