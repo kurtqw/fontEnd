@@ -30,6 +30,19 @@ $(document).ready(function(){
         });
     };
 
+    //发送笑话
+    $("#send_joke").on("click",function(){
+        $.ajax({
+            url:"http://119.29.161.184:8000/joke",
+            type:'GET',
+            dataType:'JSON',
+            success: function(res){
+                $("char_content").append('<p class="receiveMsg"><textarea class="emojis-receive">'+res.data+'</textarea></p>');
+            }
+        });
+    });
+
+
     messageSocket.onmessage = function (evt)
     {
         var received_temp=$.parseJSON(evt.data);
