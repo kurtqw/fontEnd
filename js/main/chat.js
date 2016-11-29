@@ -7,21 +7,35 @@ $(document).ready(function(){
         type:'GET',
         dataType:'JSON',
         success: function(res){
+            //按点击量对新闻进行排序
+            res.data.sort('visit_cnt');
             for(var i=0;i<res.data.length;i++){
                 $(".hot-topic-item").append('<li class="list-group-item news_list" id="'+res.data[i].id+'"><a target="_blank" href="'+res.data[i].url+'">'+res.data[i].title+'</a></li>')
             }
+            //记录新闻的点击量
+            $(".news_list").on("click",function(){
+                var post_cnt_temp={"news_id":parseInt($(this).attr('id')),"cnt":1};
+                var post_cnt=JSON.stringify(post_cnt_temp);
+                $.ajax({
+                    url: "http://119.29.161.184:8000/news",
+                    data:post_cnt,
+                    type: 'POST',
+                    dataType: 'JSON',
+                    success: function () {
+                    }
+                });
+
+            });
         }
     });
 
-    //记录新闻的点击量
-    $(".news_list").on("click",function(){
-
-    });
 
     //加载表情插件
     $("#chat_input").emojiarea({button: '#emotion'});
 
     var userId=location.search.split("=")[1];//用户的ID
+    var myName;
+    var yourName;
 
     //得到自己和对方的名字
     $.ajax({
@@ -29,8 +43,8 @@ $(document).ready(function(){
         type:'GET',
         dataType:'JSON',
         success: function(res){
-            console.log(res);
-
+            myName=res.mine;
+            yourName=res.other;
         }
     });
 
@@ -50,14 +64,12 @@ $(document).ready(function(){
     };
 
 
-
-
     messageSocket.onmessage = function (evt)
     {
         var received_temp=$.parseJSON(evt.data);
         var received_msg = received_temp.res.content;
         var chat_temp="#chat_content";
-        $(chat_temp).append('<p class="receiveMsg"><textarea class="emojis-receive">'+received_msg+'</textarea></p>');
+        $(chat_temp).append('<p class="yourName">'+yourName+'</p><p class="receiveMsg"><textarea class="emojis-receive">'+received_msg+'</textarea></p>');
         var $wysiwyg = $('.emojis-receive:last-child').emojiarea();
         $wysiwyg.trigger('change');
 
@@ -83,7 +95,7 @@ $(document).ready(function(){
         };
         messageSocket.send(JSON.stringify(msg));//以json数据发送消息
         var chat_temp="#chat_content";
-        $(chat_temp).append('<p class="myMsg"><textarea class="emojis-wysiwyg">'+$(temp_id).val()+'</textarea></p>');
+        $(chat_temp).append('<p class="myName">'+myName+'</p><p class="myMsg"><textarea class="emojis-wysiwyg">'+$(temp_id).val()+'</textarea></p>');
 
         //得到最后一个刚发送的表情转换
         var $wysiwyg = $('.emojis-wysiwyg:last-child').emojiarea();

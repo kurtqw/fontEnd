@@ -154,6 +154,18 @@ textarea:focus{
     -webkit-box-shadow: 2px 2px 10px #8e8e8e;
     clear: both;
 }
+
+.myName{
+    float: right;
+    clear: both;
+}
+
+.yourName{
+    float: left;
+    clear: both;
+}
+
+
 .receiveMsg{
     max-width: 250px;
     padding: 5px;

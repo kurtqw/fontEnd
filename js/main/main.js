@@ -92,6 +92,24 @@ $(document).ready(function(){
                 });
             }
         });
-
     }
+
+    //话题群聊
+    $(".caption a").on("click",function(){
+        var topic=$(this).parent().parent().children('h3').text();//得到所点击的话题
+        var rand=parseInt(Math.random()*10000000);
+        var url="http://119.29.161.184:8000/groupchat?topic="+topic+"&rand="+rand;
+        $.ajax({
+            url:url,
+            type:"get",
+            dataType: 'json',
+            success: function (data) {
+               console.log(data);
+            }
+        });
+
+    });
+
+
+
 });
