@@ -28,21 +28,10 @@ $(document).ready(function(){
                 e.preventDefault();
             }
         });
+        $("#send_joke").on("click",sendjoke);
     };
 
-    //发送笑话
-    $("#send_joke").on("click",function(){
-        $.ajax({
-            url:"http://119.29.161.184:8000/joke",
-            type:'GET',
-            dataType:'JSON',
-            success: function(res){
-                console.log(res.data);
-                $("#chat_input").val(res.data);
-                $("#chat_content").append('<p class="receiveMsg">'+res.data+'</p>');
-            }
-        });
-    });
+
 
 
     messageSocket.onmessage = function (evt)
@@ -62,6 +51,7 @@ $(document).ready(function(){
         $("#chat_content").append('<p class="receiveMsg">对方已退出聊天...</p>');
         console.log("关闭连接...")
     };
+
     function sendMessage(){
         var temp_id="#chat_input";
         if($(temp_id).val()==""){
@@ -84,6 +74,28 @@ $(document).ready(function(){
         $(chat_temp).scrollTop($("#chat_content")[0].scrollHeight);
         $("#chat_input").val("");
         $(".area_clear .emoji-wysiwyg-editor").empty();
+    }
+
+    function sendjoke(){
+        //发送笑话
+        $("#send_joke").on("click",function(){
+            $.ajax({
+                url:"http://119.29.161.184:8000/joke",
+                type:'GET',
+                dataType:'JSON',
+                success: function(res){
+                    console.log(res.data);
+                    var msg = {
+                        type: "message",
+                        text: res.data,
+                        id:   userId
+                    };
+                    messageSocket.send(JSON.stringify(msg));//以json数据发送消息
+                    $("#chat_content").append('<p class="myMsg">'+res.data+'</p>');
+                }
+            });
+        });
+
     }
 
 });
