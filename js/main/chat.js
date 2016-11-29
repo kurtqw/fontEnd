@@ -16,8 +16,23 @@ $(document).ready(function(){
     //加载表情插件
     $("#chat_input").emojiarea({button: '#emotion'});
 
-    //开始聊天
     var userId=location.search.split("=")[1];//用户的ID
+
+    console.log(userName);
+
+    //得到自己和对方的名字
+    $.ajax({
+        url:"http://119.29.161.184:8000/othername?id="+userId,
+        type:'GET',
+        dataType:'JSON',
+        success: function(res){
+            console.log(res);
+
+        }
+    });
+
+
+    //开始聊天
     var messageSocket = new WebSocket("ws://119.29.161.184:8000/chat?id="+userId);//引号里面写url
     messageSocket.onopen = function () {
         $("#send").on("click",sendMessage);
