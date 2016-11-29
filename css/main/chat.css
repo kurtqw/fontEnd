@@ -6,7 +6,6 @@
 }
 
 
-
 nav{
     font-family: KulminoituvaRegular,"Arial Black", Gadget, sans-serif;
     text-align: center;
@@ -87,7 +86,6 @@ textarea:focus{
     margin-top: 2px;
     text-align: center;
     padding-top: 6px;
-
     cursor: pointer;
 }
 
@@ -104,6 +102,25 @@ textarea:focus{
 .emoji-menu .group-selector a {
    width: 37px;
     height: 35px;
+}
+
+#send_joke{
+    border-radius: 100px;
+    -webkit-box-shadow:inset 1px 1px 10px #bababa;
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    float: right;
+    margin-right: 4%;
+    margin-top: 2px;
+    text-align: center;
+    padding-top: 6px;
+    cursor: pointer;
+}
+
+#joke{
+    font-size: 1.3em;
+    color: #ffa600;
 }
 
 
