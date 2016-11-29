@@ -37,7 +37,8 @@ $(document).ready(function(){
             type:'GET',
             dataType:'JSON',
             success: function(res){
-                $("char_content").append('<p class="receiveMsg"><textarea class="emojis-receive">'+res.data+'</textarea></p>');
+                console.log(res.data);
+                $("chat_content").append('<p class="receiveMsg"><textarea class="emojis-receive">'+res.data+'</textarea></p>');
             }
         });
     });
@@ -57,6 +58,7 @@ $(document).ready(function(){
 
     messageSocket.onclose = function()
     {
+        $("#chat_content").append('<p class="receiveMsg"><textarea class="emojis-receive">对方已退出聊天...</textarea></p>');
         console.log("关闭连接...")
     };
     function sendMessage(){
