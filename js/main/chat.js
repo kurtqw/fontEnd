@@ -38,7 +38,7 @@ $(document).ready(function(){
             dataType:'JSON',
             success: function(res){
                 console.log(res.data);
-                $("chat_content").append('<p class="receiveMsg"><textarea class="emojis-receive">'+res.data+'</textarea></p>');
+                $("chat_input").val(res.data);
             }
         });
     });
@@ -58,11 +58,15 @@ $(document).ready(function(){
 
     messageSocket.onclose = function()
     {
-        $("#chat_content").append('<p class="receiveMsg"><textarea class="emojis-receive">对方已退出聊天...</textarea></p>');
+        $("#chat_content").append('<p class="receiveMsg">对方已退出聊天...</p>');
         console.log("关闭连接...")
     };
     function sendMessage(){
         var temp_id="#chat_input";
+        if($(temp_id).val()==""){
+            alert('发送内容不能为空！');
+            return;
+        }
         var msg = {
             type: "message",
             text: $(temp_id).val(),
