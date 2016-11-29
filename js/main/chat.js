@@ -29,7 +29,7 @@ $(document).ready(function(){
         type:'GET',
         dataType:'JSON',
         success: function(res){
-            console.log(res.mine);
+            console.log(res);
 
         }
     });
