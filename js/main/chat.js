@@ -17,8 +17,7 @@ $(document).ready(function(){
     $("#chat_input").emojiarea({button: '#emotion'});
 
     var userId=location.search.split("=")[1];//用户的ID
-
-    console.log(userName);
+    console.log(userId);
 
     //得到自己和对方的名字
     $.ajax({
