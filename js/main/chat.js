@@ -19,7 +19,6 @@ $(document).ready(function(){
     var userId=location.search.split("=")[1];//用户的ID
 
     console.log(userId);
-    alert(userName);
 
     //得到自己和对方的名字
     $.ajax({
