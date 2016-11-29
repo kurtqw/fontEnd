@@ -38,7 +38,8 @@ $(document).ready(function(){
             dataType:'JSON',
             success: function(res){
                 console.log(res.data);
-                $("chat_input").val(res.data);
+                $("#chat_input").val(res.data);
+                $("#chat_content").append('<p class="receiveMsg">'+res.data+'</p>');
             }
         });
     });
