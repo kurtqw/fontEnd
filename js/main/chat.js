@@ -16,8 +16,8 @@ $(document).ready(function(){
     //加载表情插件
     $("#chat_input").emojiarea({button: '#emotion'});
 
-    var userId=(location.search.split("&")[0]).split("=")[1];//用户的ID
-    var userName=location.search.split("&")[1].split("=")[1];
+    var userId=location.search.split("=")[1];//用户的ID
+
     console.log(userId);
     alert(userName);
 
