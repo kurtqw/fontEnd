@@ -78,22 +78,19 @@ $(document).ready(function(){
 
     function sendjoke(){
         //发送笑话
-        $("#send_joke").on("click",function(){
-            $.ajax({
-                url:"http://119.29.161.184:8000/joke",
-                type:'GET',
-                dataType:'JSON',
-                success: function(res){
-                    console.log(res.data);
-                    var msg = {
-                        type: "message",
-                        text: res.data,
-                        id:   userId
-                    };
-                    messageSocket.send(JSON.stringify(msg));//以json数据发送消息
-                    $("#chat_content").append('<p class="myMsg">'+res.data+'</p>');
-                }
-            });
+        $.ajax({
+            url:"http://119.29.161.184:8000/joke",
+            type:'GET',
+            dataType:'JSON',
+            success: function(res){
+                var msg = {
+                    type: "message",
+                    text: res.data,
+                    id:   userId
+                };
+                messageSocket.send(JSON.stringify(msg));//以json数据发送消息
+                $("#chat_content").append('<p class="myMsg">'+res.data+'</p>');
+            }
         });
 
     }
