@@ -8,9 +8,14 @@ $(document).ready(function(){
         dataType:'JSON',
         success: function(res){
             for(var i=0;i<res.data.length;i++){
-                $(".hot-topic-item").append('<li class="list-group-item"><a target="_blank" href="'+res.data[i].url+'">'+res.data[i].title+'</a></li>')
+                $(".hot-topic-item").append('<li class="list-group-item news_list" id="'+res.data[i].id+'"><a target="_blank" href="'+res.data[i].url+'">'+res.data[i].title+'</a></li>')
             }
         }
+    });
+
+    //记录新闻的点击量
+    $(".news_list").on("click",function(){
+
     });
 
     //加载表情插件
@@ -18,15 +23,13 @@ $(document).ready(function(){
 
     var userId=location.search.split("=")[1];//用户的ID
 
-    console.log(userId);
-
     //得到自己和对方的名字
     $.ajax({
         url:"http://119.29.161.184:8000/othername?id="+userId,
         type:'GET',
         dataType:'JSON',
         success: function(res){
-            console.log(res);
+            console.log(res.mine);
 
         }
     });
