@@ -1,5 +1,3 @@
-var userName;
-
 $(document).ready(function(){
     var sex;
     listenMale();
@@ -30,9 +28,7 @@ $(document).ready(function(){
                 type:"get",
                 dataType: 'json',
                 success: function (data) {
-                    userId=data.id;
-                    userName=name;
-                    window.location.href="http://119.29.161.184:8888/main/chat.html?id="+data.id;
+                    window.location.href="http://119.29.161.184:8888/main/chat.html?id="+data.id+"?name="+name;
                 }
             });
 
