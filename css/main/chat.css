@@ -83,7 +83,7 @@ textarea:focus{
     background-color: #fff;
     float: left;
     margin-left: 3%;
-    margin-top: 2px;
+    margin-top: 6px;
     text-align: center;
     padding-top: 6px;
     cursor: pointer;
@@ -112,7 +112,7 @@ textarea:focus{
     background-color: #fff;
     float: right;
     margin-right: 4%;
-    margin-top: 2px;
+    margin-top: 6px;
     text-align: center;
     padding-top: 6px;
     cursor: pointer;
@@ -132,7 +132,7 @@ textarea:focus{
     background-color: #fff;
     float: right;
     margin-right: 3%;
-    margin-top: 2px;
+    margin-top: 6px;
     text-align: center;
     padding-top: 6px;
     padding-right: 3px;
