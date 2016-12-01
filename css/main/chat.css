@@ -35,7 +35,7 @@ aside{
     width: 60%;
     height: 100%;
     margin-left: 2%;
-    opacity: 0.8;
+    opacity: 0.9;
     display: inline-block;
     float: left;
 }
@@ -158,11 +158,13 @@ textarea:focus{
 .myName{
     float: right;
     clear: both;
+    font-size: 1px;
 }
 
 .yourName{
     float: left;
     clear: both;
+    font-size: 1px;
 }
 
 
