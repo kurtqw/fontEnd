@@ -68,8 +68,10 @@ $(document).ready(function(){
     {
         var received_temp=$.parseJSON(evt.data);
         var received_msg = received_temp.res.content;
+        var received_time = received_temp.res.time.split(" ")[1];
+
         var chat_temp="#chat_content";
-        $(chat_temp).append('<p class="yourName">'+yourName+'</p><p class="receiveMsg"><textarea class="emojis-receive">'+received_msg+'</textarea></p>');
+        $(chat_temp).append('<p class="yourName">'+yourName+" "+received_time+'</p><p class="receiveMsg"><textarea class="emojis-receive">'+received_msg+'</textarea></p>');
         var $wysiwyg = $('.emojis-receive:last-child').emojiarea();
         $wysiwyg.trigger('change');
 
@@ -119,7 +121,7 @@ $(document).ready(function(){
                     id:   userId
                 };
                 messageSocket.send(JSON.stringify(msg));//以json数据发送消息
-                $("#chat_content").append('<p class="myMsg">'+res.data+'</p>');
+                $("#chat_content").append('<p class="myName">'+myName+'</p><p class="myMsg">'+res.data+'</p>');
             }
         });
 
