@@ -103,7 +103,14 @@ $(document).ready(function(){
 
     });
 
+    //点击设为首页
+    $("#first_page").on("click",function(){
+        this.style.behavior='url(#default#homepage)';
+    });
 
-
+    //点击加入收藏
+    $("#add_favourite").on("click",function(){
+        window.external.AddFavorite('http://119.29.161.184:8888/main/index.html', 'townmeet');
+    });
 
 });
