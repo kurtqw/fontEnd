@@ -69,7 +69,6 @@ $(document).ready(function(){
         var received_temp=$.parseJSON(evt.data);
         var received_msg = received_temp.res.content;
         var received_time = received_temp.res.time.split(" ")[1];
-        console.log(received_time);
 
         var chat_temp="#chat_content";
         $(chat_temp).append('<p class="yourName">'+yourName+" "+received_time+'</p><p class="receiveMsg"><textarea class="emojis-receive">'+received_msg+'</textarea></p>');
