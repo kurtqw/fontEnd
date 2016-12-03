@@ -1,37 +1,21 @@
 $(document).ready(function(){
     var channel={'sport':'体育','music':'音乐','library':'泡馆','sing':'唱K','game':'游戏','movie':'电影'};
+    var topic=location.search.split("=")[1];
 
     //初始化背景图片
     $("#wrapper").css("background-image","url('../res/chat/chatbg.jpg')").css("height",window.screen.height);
     //得到热点新闻
     $.ajax({
-        url:"http://119.29.161.184:8000/news?page=1",
+        url:"http://119.29.161.184:8000/topic?type="+topic,
         type:'GET',
         dataType:'JSON',
         success: function(res){
-            //按点击量对新闻进行排序
-            res.data.sort('visit_cnt');
-            for(var i=0;i<res.data.length;i++){
-                $(".hot-topic-item").append('<li class="list-group-item news_list" id="'+res.data[i].id+'"><a target="_blank" href="'+res.data[i].url+'">'+res.data[i].title+'</a></li>')
+            for(var i=0;i<res.data.length;i++) {
+                $(".hot-topic-item").append('<li class="list-group-item news_list"><a target="_blank" href="' + res.data[i].url + '">' + res.data[i].title + '</a></li>')
             }
-            //记录新闻的点击量
-            $(".news_list").on("click",function(){
-                var post_cnt_temp={"news_id":parseInt($(this).attr('id')),"cnt":1};
-                var post_cnt=JSON.stringify(post_cnt_temp);
-                $.ajax({
-                    url: "http://119.29.161.184:8000/news",
-                    data:post_cnt,
-                    type: 'POST',
-                    dataType: 'JSON',
-                    success: function () {
-                    }
-                });
-
-            });
         }
     });
 
-    var topic=location.search.split("=")[1];
     var rand=parseInt(Math.random()*10000000);
     var init=0;//还没用初始化用户信息
 
