@@ -8,7 +8,7 @@
 /*导航栏样式设置*/
 .jumbotron{
     background-image:url('../../res/home/bg.jpg');
-    width: 100%;
+    width: 1440px;
     height: 650px;
 }
 
@@ -159,6 +159,7 @@
     background-image:url('../../res/home/footer.jpg');
     margin-top: 50px;
     height: 80px;
+    width: 1440px;
 }
 
 #first_page{
